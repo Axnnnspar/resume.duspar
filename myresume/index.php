@@ -145,10 +145,7 @@
 </head>
 <body>
 
-    <div class="resume-container">
-        <!-- Header -->
-        <div class="header">
-            <div>
+    
 <?php
     $name = "Andrea Duspar";
     $email = "dusparandrea9@gmail.com";
@@ -204,7 +201,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">s
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $name; ?> - Resume</title>
     <link rel="stylesheet" href="styles.css">
