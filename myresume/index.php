@@ -149,89 +149,128 @@
         <!-- Header -->
         <div class="header">
             <div>
-                <h1>Andrea Duspar</h1>
+<?php
+    $name = "Andrea Duspar";
+    $email = "dusparandrea9@gmail.com";
+    $phone = "+63 (985) 157-0923";
+    $facebook = "https://web.facebook.com/andrea.duspar.1";
+    $github = "https://github.com/Axnnnspar";
+    $profileImage = "dpresume.jpg";
+    
+    $skills = ["JavaScript", "React", "Node.js", "Python", "SQL", "Git", "Agile Methodologies", "UI/UX Design"];
+    
+    $education = [
+        ["degree" => "Bachelor of Science in Information Technology", "school" => "Guimaras State University", "year" => "2022 - 2026"],
+        ["degree" => "General Academic Strand", "school" => "Buenavista National High School", "year" => "2020 - 2022"]
+    ];
+    
+    $experience = [
+        [
+            "position" => "Frontend Developer",
+            "company" => "Microsoft Corporation, Inc.",
+            "year" => "2026 - Present",
+            "tasks" => [
+                "Developed responsive web applications using React and Node.js.",
+                "Collaborated with designers to implement UI/UX best practices.",
+                "Optimized application performance for faster load times."
+            ]
+        ],
+        [
+            "position" => "Software Engineer Intern",
+            "company" => "Icreatech Company",
+            "year" => "2025 - 2026",
+            "tasks" => [
+                "Assisted in building RESTful APIs using Python and Flask.",
+                "Participated in code reviews and team meetings.",
+                "Debugged and fixed issues in existing codebase."
+            ]
+        ]
+    ];
+    
+    $projects = [
+        [
+            "name" => "E-commerce Platform",
+            "description" => "Built a full-stack e-commerce platform with user authentication and payment integration.",
+            "technologies" => "React, Node.js, MongoDB, Stripe API"
+        ],
+        [
+            "name" => "Task Management App",
+            "description" => "Developed a task management app with real-time collaboration features.",
+            "technologies" => "React, Firebase, Material-UI"
+        ]
+    ];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">s
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $name; ?> - Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div>
+                <h1><?php echo $name; ?></h1>
                 <div class="contact-info">
-                    <p>Email: <a href="mailto:dusparandrea9@gmail.com">dusparandrea9@gmail.com</a></p>
-                    <p>Phone: +63 (985) 157-0923</p>
-                    <p>Facebok: <a href="https://web.facebook.com/andrea.duspar.1" target="_blank">web.facebook.com/andrea.duspar.1</a></p>
-                    <p>GitHub: <a href="https://github.com/Axnnnspar" target="_blank">github.com/Axnnnspar</a></p>
+                    <p>Email: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+                    <p>Phone: <?php echo $phone; ?></p>
+                    <p>Facebook: <a href="<?php echo $facebook; ?>" target="_blank">Facebook Profile</a></p>
+                    <p>GitHub: <a href="<?php echo $github; ?>" target="_blank">GitHub Profile</a></p>
                 </div>
             </div>
-            <!-- Profile Image -->
-            <img src= "dpresume.jpg" alt="andrea's profile" >
+            <img src="<?php echo $profileImage; ?>" alt="Profile Picture">
         </div>
 
-        <!-- Two-column layout -->
         <div class="columns">
-            <!-- Left Column -->
             <div class="left-column">
-                <!-- Skills -->
                 <div class="section">
                     <h2>Skills</h2>
                     <div class="skills-list">
-                        <span>JavaScript</span>
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>Git</span>
-                        <span>Agile Methodologies</span>
-                        <span>UI/UX Design</span>
+                        <?php foreach ($skills as $skill) { echo "<span>$skill</span>"; } ?>
                     </div>
                 </div>
-
-                <!-- Education -->
+                
                 <div class="section">
                     <h2>Education</h2>
-                    <p><strong>Bachelor of Science in Information Technology</strong></p>
-                    <p>Guimaras State University (2022 - 2026)</p>
-                    <p><strong>General Academic Strand</strong></p>
-                    <p>Buenavista National High School(2020 - 2022)</p>
+                    <?php foreach ($education as $edu) { ?>
+                        <p><strong><?php echo $edu["degree"]; ?></strong></p>
+                        <p><?php echo $edu["school"] . " (" . $edu["year"] . ")"; ?></p>
+                    <?php } ?>
                 </div>
             </div>
-
-            <!-- Right Column -->
+            
             <div class="right-column">
-                <!-- Experience -->
                 <div class="section">
                     <h2>Experience</h2>
-                    <div class="experience">
-                        <h3>Frontend Developer</h3>
-                        <p class="duration">Microsoft Corporation, Inc. | 2026 - Present</p>
-                        <ul>
-                            <li>Developed responsive web applications using React and Node.js.</li>
-                            <li>Collaborated with designers to implement UI/UX best practices.</li>
-                            <li>Optimized application performance for faster load times.</li>
-                        </ul>
-                    </div>
-                    <div class="experience">
-                        <h3>Software Engineer Intern</h3>
-                        <p class="duration">Icreatech Company| 2025 - 2026</p>
-                        <ul>
-                            <li>Assisted in building RESTful APIs using Python and Flask.</li>
-                            <li>Participated in code reviews and team meetings.</li>
-                            <li>Debugged and fixed issues in existing codebase.</li>
-                        </ul>
-                    </div>
+                    <?php foreach ($experience as $exp) { ?>
+                        <div class="experience">
+                            <h3><?php echo $exp["position"]; ?></h3>
+                            <p class="duration"><?php echo $exp["company"] . " | " . $exp["year"]; ?></p>
+                            <ul>
+                                <?php foreach ($exp["tasks"] as $task) { echo "<li>$task</li>"; } ?>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
 
-                <!-- Projects -->
                 <div class="section">
                     <h2>Projects</h2>
-                    <div class="project">
-                        <h3>E-commerce Platform</h3>
-                        <p>Built a full-stack e-commerce platform with user authentication and payment integration.</p>
-                        <p class="technologies">Technologies: React, Node.js, MongoDB, Stripe API</p>
-                    </div>
-                    <div class="project">
-                        <h3>Task Management App</h3>
-                        <p>Developed a task management app with real-time collaboration features.</p>
-                        <p class="technologies">Technologies: React, Firebase, Material-UI</p>
-                    </div>
+                    <?php foreach ($projects as $project) { ?>
+                        <div class="project">
+                            <h3><?php echo $project["name"]; ?></h3>
+                            <p><?php echo $project["description"]; ?></p>
+                            <p class="technologies">Technologies: <?php echo $project["technologies"]; ?></p>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </div>
+</body>
+</html>
 
 </body>
 </html>
